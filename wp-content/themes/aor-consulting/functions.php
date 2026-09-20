@@ -18,6 +18,8 @@ add_action( 'after_setup_theme', 'aor_consulting_setup' );
 
 function aor_consulting_enqueue_styles() {
 	wp_enqueue_style( 'aor-consulting', get_stylesheet_uri(), array(), wp_get_theme()->get( 'Version' ) );
+	// Run in the head, before the body paints, to apply the stored color preference.
+	wp_enqueue_script( 'aor-color-mode', get_theme_file_uri( 'assets/js/color-mode.js' ), array(), wp_get_theme()->get( 'Version' ), false );
 	wp_enqueue_script( 'aor-consulting', get_theme_file_uri( 'assets/js/site.js' ), array(), wp_get_theme()->get( 'Version' ), array( 'in_footer' => true, 'strategy' => 'defer' ) );
 }
 add_action( 'wp_enqueue_scripts', 'aor_consulting_enqueue_styles' );
