@@ -46,7 +46,7 @@
 <!-- wp:html -->
 <div class="aor-hero-art" aria-hidden="true">
  <span class="aor-art-label">PENSER À 360°. AGIR AVEC PRÉCISION.</span>
- <img src="<?php echo esc_url( get_theme_file_uri( 'assets/images/resilience-compass.svg' ) ); ?>" width="520" height="560" alt="" fetchpriority="high">
+ <img src="<?php echo esc_url( add_query_arg( 'ver', wp_get_theme()->get( 'Version' ), get_theme_file_uri( 'assets/images/resilience-compass.svg' ) ) ); ?>" width="520" height="560" alt="" fetchpriority="high">
  <span class="aor-art-coordinate">AO-RISK / STRATEGIC RESILIENCE</span>
  <div class="aor-art-note"><span class="aor-art-note-dot"></span>Un cap clair.<br><span>Même dans l’incertitude.</span></div>
 </div>

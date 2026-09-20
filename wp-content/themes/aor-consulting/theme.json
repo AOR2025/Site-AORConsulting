@@ -73,16 +73,6 @@
           "name": "Blanc",
           "slug": "white",
           "color": "#FFFFFF"
-        },
-        {
-          "name": "Violet formation",
-          "slug": "training-purple",
-          "color": "#714797"
-        },
-        {
-          "name": "Lavande",
-          "slug": "lavender",
-          "color": "#F1EEF5"
         }
       ]
     },
