@@ -1,51 +1,243 @@
 # Site AO-Risk Consulting
 
-Site vitrine WordPress en français pour le conseil en risques, la résilience stratégique et la formation des PME et ETI. Le thème à blocs se trouve dans `wp-content/themes/aor-consulting/`.
+Site vitrine WordPress en français dédié au conseil en gestion des risques, à la résilience stratégique et à la formation des PME et ETI.
 
-L’interface s’inspire du portfolio « Strategic Resilience » et du programme « Maîtrise du Contrôle Interne » fournis par le client. Elle reprend les **cinq piliers et dix prestations**, propose des parcours selon la maturité de l’entreprise et présente la formation sur deux jours. La palette ivoire et bleu est complétée par un accent violet pour la formation. Les tarifs ne sont pas affichés ; le contact permet de préciser le format et le périmètre de la demande.
+Le projet repose sur un thème WordPress personnalisé situé dans :
 
-## Utilisation
+```text
+wp-content/themes/aor-consulting/
+```
 
-1. Démarrer l’environnement existant avec `docker compose up -d`, après renseignement des variables du fichier `.env`.
-2. Ouvrir WordPress à l’adresse correspondant à `WORDPRESS_BIND` (en local : `http://127.0.0.1:8080`).
-3. Activer **AO-Risk Consulting** dans **Apparence → Thèmes**, si nécessaire.
-4. Modifier les textes, les compositions et les modèles dans **Apparence → Éditeur**. `front-page.html` fournit directement l’accueil.
-5. Pour une page d’expertises distincte, attribuer le modèle **Expertises AO-Risk Consulting** à une page.
+## Stack
 
-Le menu rejoint les sections de l’accueil depuis toutes les pages. Le thème comprend aussi les modèles de pages, d’articles, de publications et de page 404. Aucune donnée éditoriale existante n’est remplacée à l’activation. Un modèle personnalisé enregistré dans WordPress reste prioritaire sur le fichier du thème.
+* WordPress
+* PHP
+* HTML / CSS
+* JavaScript natif
+* `theme.json`
+* MariaDB
+* Docker / Docker Compose
 
-Les prestations utilisent les blocs natifs Détails, utilisables au clavier et sans JavaScript. Le programme de formation comporte deux onglets navigables au clavier ; sans JavaScript, les deux jours sont visibles. Les appels à contact présélectionnent le sujet correspondant. La navigation mobile s’appuie sur le bloc Navigation de WordPress.
+## Fonctionnalités principales
 
-## Contact et validation des entrées
+Le thème comprend notamment :
 
-Le formulaire `[aor_contact]` utilise `wp_mail()`. Son destinataire est l’**adresse e-mail d’administration** configurée dans **Réglages → Général**. Les messages ne sont pas enregistrés par le thème dans la base WordPress ni dans le stockage du navigateur.
+* une page d’accueil personnalisée ;
+* une présentation des expertises et prestations ;
+* une section dédiée à la méthodologie ;
+* une présentation de l’offre de formation ;
+* un formulaire de contact ;
+* des templates pour les pages, articles et erreurs 404 ;
+* une navigation responsive ;
+* des patterns WordPress réutilisables ;
+* une interface adaptée aux formats desktop, tablette et mobile.
 
-La validation côté serveur contrôle la méthode HTTP, le nonce, les types, les longueurs, l’adresse e-mail et une liste fermée de sujets. Les textes sont nettoyés avant envoi ; aucun contenu utilisateur ne sert de destinataire ou de sujet d’en-tête. L’adresse de réponse est validée et protégée contre les injections d’en-tête. Un champ anti-robot et une limite d’un essai par minute et par IP complètent ces contrôles. Cette limite utilise une empreinte salée temporaire.
+Le site utilise principalement les fonctionnalités natives de WordPress et limite les dépendances externes.
 
-Avec JavaScript, les retours s’affichent dans le formulaire : la saisie est conservée en cas d’échec, le bouton est désactivé pendant l’envoi et les messages du serveur sont rendus comme du texte. La requête est interrompue après 20 secondes sans confirmation. Sans JavaScript, le formulaire utilise une soumission POST et une redirection après succès.
+## Structure du thème
 
-Configurer un transport e-mail opérationnel sur l’hébergement et vérifier la réception avant mise en ligne. La confirmation signifie que le service d’envoi a pris en charge la demande ; elle ne prouve pas sa livraison. Exclure les pages contenant le formulaire d’un cache HTML de longue durée pour éviter les nonces expirés.
+```text
+wp-content/themes/aor-consulting/
+├── assets/
+│   ├── css/
+│   ├── images/
+│   └── js/
+├── parts/
+├── patterns/
+├── templates/
+├── tests/
+├── functions.php
+├── style.css
+└── theme.json
+```
 
-La protection du formulaire ne constitue pas un audit de sécurité de l’ensemble de WordPress ou de son hébergement. Les mises à jour, les accès d’administration et le déploiement HTTPS relèvent de la configuration du site.
+### `templates/`
 
-## Contenus et ressources
+Contient les modèles principaux du site :
 
-Les textes sont adaptés des supports client. Les coordonnées et informations légales restent à renseigner avec les données de l’entreprise. Le nom du site dans **Réglages → Général** peut être harmonisé avec « AO-Risk Consulting ». Le lien de confidentialité apparaît si une page publiée est configurée dans **Réglages → Confidentialité**.
+* page d’accueil ;
+* pages standards ;
+* publications ;
+* articles ;
+* page 404 ;
+* modèle dédié aux expertises.
 
-L’illustration du premier écran est un SVG léger inspiré du portfolio. Le site ne charge ni les planches du PDF, ni le PNG de formation, ni police distante, ni bibliothèque JavaScript tierce. Les couleurs et familles typographiques sont définies dans `theme.json`, les styles dans `style.css` et les interactions progressives dans `assets/js/site.js`.
+### `parts/`
 
-## Vérification
+Contient les éléments communs du thème :
+
+* header ;
+* footer.
+
+### `patterns/`
+
+Contient les sections réutilisables du site :
+
+* hero ;
+* expertises ;
+* méthodologie ;
+* formation ;
+* appels à l’action ;
+* header et footer.
+
+### `assets/`
+
+Contient les ressources du thème :
+
+* JavaScript ;
+* images ;
+* styles complémentaires.
+
+## Installation locale
+
+### 1. Cloner le dépôt
+
+```bash
+git clone <repository-url>
+cd Site-AORConsulting
+```
+
+### 2. Configurer l’environnement
+
+Créer un fichier `.env` à partir du modèle fourni :
+
+```bash
+cp .env.example .env
+```
+
+Puis renseigner les variables nécessaires dans `.env`.
+
+Le fichier `.env` contient les valeurs propres à l’environnement local et ne doit pas être versionné.
+
+### 3. Démarrer WordPress
+
+```bash
+docker compose up -d
+```
+
+En développement local, WordPress est accessible à l’adresse configurée dans `WORDPRESS_BIND`.
+
+Exemple :
+
+```text
+http://127.0.0.1:8080
+```
+
+### 4. Activer le thème
+
+Dans l’administration WordPress :
+
+```text
+Apparence → Thèmes → AO-Risk Consulting
+```
+
+Activer ensuite le thème.
+
+## Personnalisation
+
+Les principaux réglages graphiques sont centralisés dans :
+
+```text
+theme.json
+```
+
+Ils comprennent notamment :
+
+* les couleurs ;
+* les typographies ;
+* les espacements ;
+* les largeurs de contenu ;
+* les styles globaux des blocs.
+
+Les styles spécifiques sont définis dans :
+
+```text
+style.css
+```
+
+Les interactions JavaScript sont regroupées dans :
+
+```text
+assets/js/site.js
+```
+
+## Formulaire de contact
+
+Le thème comprend un formulaire de contact personnalisé.
+
+Les données saisies sont validées côté serveur et plusieurs protections sont mises en place contre les soumissions invalides ou automatisées.
+
+Le formulaire utilise le système d’envoi d’e-mails de WordPress.
+
+Un transport e-mail adapté devra être configuré sur l’environnement de production avant la mise en ligne.
+
+## Sécurité
+
+Le dépôt ne contient pas les secrets de l’environnement.
+
+Les fichiers contenant des données sensibles ou générées localement sont exclus grâce au `.gitignore`, notamment :
+
+```text
+.env
+wp-content/uploads/
+fichiers de sauvegarde
+logs
+bases de données exportées
+```
+
+Les identifiants, mots de passe, clés API et autres secrets ne doivent jamais être ajoutés au dépôt Git.
+
+## Vérification du code
+
+### PHP
 
 ```bash
 find wp-content/themes/aor-consulting -name '*.php' -exec php -l {} \;
+```
+
+### JSON
+
+```bash
 python3 -m json.tool wp-content/themes/aor-consulting/theme.json > /dev/null
+```
+
+### JavaScript
+
+```bash
 node --check wp-content/themes/aor-consulting/assets/js/site.js
 ```
 
-Tests serveur, avec le thème actif dans WordPress local :
+### Tests du formulaire
+
+Avec le thème actif dans l’environnement WordPress local :
 
 ```bash
-docker compose exec -T wordpress php /var/www/html/wp-content/themes/aor-consulting/tests/contact.php
+docker compose exec -T wordpress \
+php /var/www/html/wp-content/themes/aor-consulting/tests/contact.php
 ```
 
-Ces tests interceptent le service d’envoi : **aucun e-mail n’est envoyé**. Ils couvrent le rendu, les saisies malformées, les injections d’en-tête, les sujets autorisés, les erreurs d’envoi, la redirection et la limitation des envois. La donnée temporaire du test est supprimée en fin d’exécution.
+Les tests utilisent l’environnement local et n’envoient pas réellement d’e-mail.
+
+## Développement Git
+
+Le projet suit le workflow :
+
+```text
+feature/*
+    ↓
+develop
+    ↓
+main
+```
+
+* `main` : version stable ;
+* `develop` : branche d’intégration ;
+* `feature/*` : développement des fonctionnalités.
+
+Les modifications passent par des Pull Requests avant intégration dans les branches protégées.
+
+## Contenus
+
+Les contenus du site sont adaptés aux besoins d’AO-Risk Consulting.
+
+Les informations légales, coordonnées définitives et paramètres liés à l’environnement de production doivent être renseignés avant la mise en ligne.
