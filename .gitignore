@@ -17,6 +17,13 @@ wp-content/backup-*/
 wp-content/ai1wm-backups/
 
 # =========================
+# Fichiers index WordPress générés
+# =========================
+wp-content/index.php
+wp-content/themes/index.php
+wp-content/plugins/index.php
+
+# =========================
 # Thèmes WordPress standards
 # =========================
 wp-content/themes/twentytwenty*/
