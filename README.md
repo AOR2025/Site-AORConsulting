@@ -29,6 +29,7 @@ Le thème comprend notamment :
 * un formulaire de contact ;
 * des templates pour les pages, articles et erreurs 404 ;
 * une navigation responsive ;
+* un thème clair et un thème sombre avec mémorisation du choix ;
 * des patterns WordPress réutilisables ;
 * une interface adaptée aux formats desktop, tablette et mobile.
 
@@ -161,6 +162,12 @@ Les interactions JavaScript sont regroupées dans :
 assets/js/site.js
 ```
 
+### Thème clair et sombre
+
+Le bouton lune / soleil dans l’en-tête permet de changer de thème. Au premier affichage, le site suit la préférence du système. Un choix manuel est conservé dans le navigateur via `localStorage` et reste prioritaire lors des visites suivantes.
+
+Les couleurs des deux modes sont définies par les variables `--aor-*` au début de `style.css`. Le script `assets/js/color-mode.js` applique la préférence dès le chargement de l’en-tête pour éviter un flash du mauvais thème. Si le stockage est indisponible, le bouton fonctionne pour la page courante ; sans JavaScript, le site conserve son thème clair.
+
 ## Formulaire de contact
 
 Le thème comprend un formulaire de contact personnalisé.
@@ -205,6 +212,7 @@ python3 -m json.tool wp-content/themes/aor-consulting/theme.json > /dev/null
 
 ```bash
 node --check wp-content/themes/aor-consulting/assets/js/site.js
+node --check wp-content/themes/aor-consulting/assets/js/color-mode.js
 ```
 
 ### Tests du formulaire
