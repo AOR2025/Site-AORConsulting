@@ -1,0 +1,270 @@
+{
+  "$schema": "https://schemas.wp.org/trunk/theme.json",
+  "version": 3,
+  "customTemplates": [
+    {
+      "name": "page-services",
+      "title": "Expertises AO-Risk Consulting",
+      "postTypes": [
+        "page"
+      ]
+    }
+  ],
+  "templateParts": [
+    {
+      "name": "header",
+      "title": "En-tête AO-Risk Consulting",
+      "area": "header"
+    },
+    {
+      "name": "footer",
+      "title": "Pied de page AO-Risk Consulting",
+      "area": "footer"
+    }
+  ],
+  "settings": {
+    "appearanceTools": true,
+    "layout": {
+      "contentSize": "1180px",
+      "wideSize": "1380px"
+    },
+    "color": {
+      "defaultPalette": false,
+      "defaultGradients": false,
+      "custom": false,
+      "customGradient": false,
+      "palette": [
+        {
+          "name": "Ivoire",
+          "slug": "ivory",
+          "color": "#F2F3ED"
+        },
+        {
+          "name": "Anthracite",
+          "slug": "ink",
+          "color": "#283038"
+        },
+        {
+          "name": "Bleu acier",
+          "slug": "steel-blue",
+          "color": "#607F90"
+        },
+        {
+          "name": "Bleu profond",
+          "slug": "deep-blue",
+          "color": "#354955"
+        },
+        {
+          "name": "Corail",
+          "slug": "coral",
+          "color": "#E08068"
+        },
+        {
+          "name": "Ocre",
+          "slug": "ochre",
+          "color": "#D0A050"
+        },
+        {
+          "name": "Brume",
+          "slug": "mist",
+          "color": "#E5E8E8"
+        },
+        {
+          "name": "Blanc",
+          "slug": "white",
+          "color": "#FFFFFF"
+        },
+        {
+          "name": "Violet formation",
+          "slug": "training-purple",
+          "color": "#714797"
+        },
+        {
+          "name": "Lavande",
+          "slug": "lavender",
+          "color": "#F1EEF5"
+        }
+      ]
+    },
+    "spacing": {
+      "blockGap": true,
+      "margin": true,
+      "padding": true,
+      "units": [
+        "px",
+        "rem",
+        "%",
+        "vw",
+        "vh"
+      ],
+      "spacingSizes": [
+        {
+          "name": "Très petit",
+          "slug": "10",
+          "size": "0.5rem"
+        },
+        {
+          "name": "Petit",
+          "slug": "20",
+          "size": "1rem"
+        },
+        {
+          "name": "Moyen",
+          "slug": "30",
+          "size": "1.5rem"
+        },
+        {
+          "name": "Grand",
+          "slug": "40",
+          "size": "2rem"
+        },
+        {
+          "name": "Très grand",
+          "slug": "50",
+          "size": "4rem"
+        },
+        {
+          "name": "Section",
+          "slug": "60",
+          "size": "6rem"
+        }
+      ]
+    },
+    "typography": {
+      "fluid": true,
+      "customFontSize": false,
+      "lineHeight": true,
+      "letterSpacing": true,
+      "fontFamilies": [
+        {
+          "name": "AOR Sans",
+          "slug": "aor-sans",
+          "fontFamily": "\"Arial Narrow\", \"Helvetica Neue\", Arial, sans-serif"
+        },
+        {
+          "name": "AOR Text",
+          "slug": "aor-text",
+          "fontFamily": "\"Helvetica Neue\", Helvetica, Arial, sans-serif"
+        },
+        {
+          "name": "AOR Display",
+          "slug": "aor-display",
+          "fontFamily": "\"Iowan Old Style\", \"Palatino Linotype\", Georgia, serif"
+        }
+      ],
+      "fontSizes": [
+        {
+          "name": "Petit",
+          "slug": "small",
+          "size": "0.875rem"
+        },
+        {
+          "name": "Texte",
+          "slug": "medium",
+          "size": "1rem"
+        },
+        {
+          "name": "Grand texte",
+          "slug": "large",
+          "size": "1.25rem"
+        },
+        {
+          "name": "Titre 3",
+          "slug": "x-large",
+          "size": "1.75rem"
+        },
+        {
+          "name": "Titre 2",
+          "slug": "xx-large",
+          "size": "clamp(2rem, 4vw, 3.25rem)"
+        },
+        {
+          "name": "Hero",
+          "slug": "hero",
+          "size": "clamp(3rem, 7vw, 6rem)"
+        }
+      ]
+    },
+    "custom": {
+      "radius": {
+        "small": "2px",
+        "medium": "4px"
+      }
+    }
+  },
+  "styles": {
+    "color": {
+      "background": "var:preset|color|ivory",
+      "text": "var:preset|color|ink"
+    },
+    "spacing": {
+      "blockGap": "var:preset|spacing|30"
+    },
+    "typography": {
+      "fontFamily": "var:preset|font-family|aor-text",
+      "fontSize": "var:preset|font-size|medium",
+      "lineHeight": "1.6"
+    },
+    "elements": {
+      "heading": {
+        "color": {
+          "text": "var:preset|color|ink"
+        },
+        "typography": {
+          "fontFamily": "var:preset|font-family|aor-sans",
+          "fontWeight": "400",
+          "lineHeight": "1.08",
+          "letterSpacing": "-0.02em"
+        }
+      },
+      "link": {
+        "color": {
+          "text": "var:preset|color|deep-blue"
+        },
+        "typography": {
+          "textDecoration": "none"
+        }
+      },
+      "button": {
+        "color": {
+          "background": "var:preset|color|deep-blue",
+          "text": "var:preset|color|white"
+        },
+        "typography": {
+          "fontFamily": "var:preset|font-family|aor-text",
+          "fontWeight": "600"
+        },
+        "border": {
+          "radius": "2px"
+        }
+      }
+    },
+    "blocks": {
+      "core/button": {
+        "spacing": {
+          "padding": {
+            "top": "0.9rem",
+            "right": "1.6rem",
+            "bottom": "0.9rem",
+            "left": "1.6rem"
+          }
+        }
+      },
+      "core/paragraph": {
+        "typography": {
+          "lineHeight": "1.65"
+        }
+      },
+      "core/heading": {
+        "typography": {
+          "fontSize": "var:preset|font-size|xx-large"
+        }
+      },
+      "core/separator": {
+        "color": {
+          "background": "var:preset|color|steel-blue"
+        }
+      }
+    }
+  }
+}
