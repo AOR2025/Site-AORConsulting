@@ -2,7 +2,7 @@
   <g stroke="#607f90" stroke-width=".8" opacity=".3">
     <path d="M30 40H490M30 510H490M42 25V535M478 25V535M15 275H505M260 20V535"/>
   </g>
-  <circle cx="350" cy="193" r="50" fill="#e08068"/>
+  <circle cx="360" cy="175" r="50" fill="#e08068"/>
   <g stroke="#607f90" stroke-width="1">
     <circle cx="260" cy="275" r="199" stroke="#283038" stroke-width="1.5"/>
     <circle cx="260" cy="275" r="188" stroke="#283038"/>
@@ -22,8 +22,8 @@
     <circle cx="360" cy="375" r="6"/><circle cx="160" cy="375" r="6"/>
   </g>
   <g stroke="#f2f3ed" opacity=".65">
-    <circle cx="350" cy="193" r="38"/><circle cx="350" cy="193" r="28"/>
-    <circle cx="350" cy="193" r="19"/><path d="M340 193H360M350 183V203"/>
+    <circle cx="360" cy="175" r="38"/><circle cx="360" cy="175" r="28"/>
+    <circle cx="360" cy="175" r="19"/><path d="M350 175H370M360 165V185"/>
   </g>
   <circle cx="260" cy="275" r="3" fill="#283038"/>
 </svg>
