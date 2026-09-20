@@ -1,0 +1,24 @@
+<!-- wp:template-part {"slug":"header","tagName":"header","className":"aor-site-header"} /-->
+<!-- wp:group {"tagName":"main","anchor":"contenu","className":"aor-page aor-shell","layout":{"type":"constrained"}} -->
+<main class="wp-block-group aor-page aor-shell" id="contenu">
+	<!-- wp:heading {"level":1} --><h1 class="wp-block-heading">Publications</h1><!-- /wp:heading -->
+	<!-- wp:query {"query":{"inherit":true}} -->
+	<div class="wp-block-query">
+		<!-- wp:post-template -->
+			<!-- wp:post-title {"isLink":true} /-->
+			<!-- wp:post-date /-->
+			<!-- wp:post-excerpt /-->
+		<!-- /wp:post-template -->
+		<!-- wp:query-pagination {"layout":{"type":"flex"}} -->
+			<!-- wp:query-pagination-previous /-->
+			<!-- wp:query-pagination-numbers /-->
+			<!-- wp:query-pagination-next /-->
+		<!-- /wp:query-pagination -->
+		<!-- wp:query-no-results -->
+			<!-- wp:paragraph --><p>Aucune publication pour le moment.</p><!-- /wp:paragraph -->
+		<!-- /wp:query-no-results -->
+	</div>
+	<!-- /wp:query -->
+</main>
+<!-- /wp:group -->
+<!-- wp:template-part {"slug":"footer","tagName":"footer","className":"aor-site-footer"} /-->
