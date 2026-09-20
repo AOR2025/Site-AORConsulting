@@ -1,0 +1,81 @@
+# =========================
+# Secrets / environnement
+# =========================
+.env
+.env.*
+!.env.example
+
+# =========================
+# WordPress - données générées
+# =========================
+wp-content/uploads/
+wp-content/upgrade/
+wp-content/languages/
+wp-content/cache/
+wp-content/backups/
+wp-content/backup-*/
+wp-content/ai1wm-backups/
+
+# =========================
+# Fichiers index WordPress générés
+# =========================
+wp-content/index.php
+wp-content/themes/index.php
+wp-content/plugins/index.php
+
+# =========================
+# Thèmes WordPress standards
+# =========================
+wp-content/themes/twentytwenty*/
+
+# =========================
+# Plugins installés depuis WordPress
+# =========================
+wp-content/plugins/*
+
+# Autoriser plus tard un plugin développé par nous
+# !wp-content/plugins/aor-custom-plugin/
+
+# =========================
+# Fichiers WordPress sensibles / locaux
+# =========================
+wp-config.php
+.htaccess
+
+# =========================
+# Bases de données / sauvegardes
+# =========================
+*.sql
+*.sql.gz
+*.dump
+*.bak
+*.backup
+
+# =========================
+# Logs
+# =========================
+*.log
+debug.log
+wp-content/debug.log
+
+# =========================
+# Node / build
+# =========================
+node_modules/
+npm-debug.log*
+yarn-error.log*
+dist/
+build/
+
+# =========================
+# PHP / Composer
+# =========================
+vendor/
+
+# =========================
+# IDE / OS
+# =========================
+.DS_Store
+Thumbs.db
+*.swp
+*.swo
