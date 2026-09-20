@@ -1,4 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 520 560" fill="none">
+  <style>
+    @media (prefers-color-scheme: dark) {
+      [stroke="#607f90"] { stroke: #91b0bd; }
+      [stroke="#283038"] { stroke: #c7d8de; }
+      [fill="#283038"] { fill: #c7d8de; }
+    }
+  </style>
   <g stroke="#607f90" stroke-width=".8" opacity=".3">
     <path d="M30 40H490M30 510H490M42 25V535M478 25V535M15 275H505M260 20V535"/>
   </g>
