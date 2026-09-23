@@ -176,9 +176,9 @@ Le thème comprend un formulaire de contact personnalisé.
 
 Les données saisies sont validées côté serveur et plusieurs protections sont mises en place contre les soumissions invalides ou automatisées.
 
-Le formulaire utilise le système d’envoi d’e-mails de WordPress.
+Le destinataire se configure avec `AOR_CONTACT_EMAIL` dans `.env`, indépendamment de l'adresse administrateur WordPress. Aucune adresse de test n'est inscrite dans le thème.
 
-Un transport e-mail adapté devra être configuré sur l’environnement de production avant la mise en ligne.
+Le formulaire utilise le système d’envoi d’e-mails de WordPress. Installer et configurer l'extension **WP Mail SMTP** dans le back-office pour lui fournir un transport d'envoi. Voir la [configuration de la messagerie](docs/email.md), à compléter en local comme en production pour permettre les envois réels.
 
 ## Sécurité
 

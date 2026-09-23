@@ -25,6 +25,7 @@ class AOR_Test_Response extends RuntimeException {
 $checks      = 0;
 $mail_calls  = array();
 $mail_result = true;
+$original_recipient = getenv( 'AOR_CONTACT_EMAIL' );
 
 function aor_test_assert( $condition, $label ) {
 	global $checks;
@@ -74,12 +75,23 @@ $valid                 = array(
 
 try {
 	delete_transient( $rate_key );
+	putenv( 'AOR_CONTACT_EMAIL' );
+	aor_test_assert( get_option( 'admin_email' ) === aor_consulting_contact_recipient(), 'Fall back to administrator only when contact recipient is unset' );
+	putenv( 'AOR_CONTACT_EMAIL=' );
+	aor_test_assert( get_option( 'admin_email' ) === aor_consulting_contact_recipient(), 'Empty environment default preserves existing recipient' );
+	putenv( 'AOR_CONTACT_EMAIL=not-an-email' );
+	aor_test_assert( '' === aor_consulting_contact_recipient(), 'Invalid recipient does not silently fall back to administrator' );
+	putenv( "AOR_CONTACT_EMAIL=team@example.org\r\nBcc: other@example.org" );
+	aor_test_assert( '' === aor_consulting_contact_recipient(), 'Reject injected recipient headers' );
+	putenv( 'AOR_CONTACT_EMAIL=team@example.org' );
+	aor_test_assert( 'team@example.org' === aor_consulting_contact_recipient(), 'Environment recipient overrides administrator independently' );
 	aor_test_assert( (bool) has_action( 'admin_post_nopriv_aor_contact', 'aor_consulting_submit_contact' ), 'Anonymous visitors can submit' );
 	aor_test_assert( (bool) has_action( 'admin_post_aor_contact', 'aor_consulting_submit_contact' ), 'Logged-in visitors can submit' );
 
 	$rendered = do_blocks( '<!-- wp:pattern {"slug":"aor-consulting/call-to-action"} /-->' );
 	aor_test_assert( str_contains( $rendered, '<form' ) && ! str_contains( $rendered, '[aor_contact]' ), 'Contact pattern renders a real form' );
 	aor_test_assert( str_contains( $rendered, 'name="aor_contact_nonce"' ), 'Rendered form includes a nonce' );
+	aor_test_assert( ! str_contains( $rendered, 'team@example.org' ), 'Configured recipient is not exposed in the form' );
 
 	aor_test_submit( $valid, 405, 'Reject GET requests', 'GET' );
 	aor_test_submit( array_replace( $valid, array( 'aor_contact_nonce' => 'invalid' ) ), 403, 'Reject invalid nonce' );
@@ -99,7 +111,7 @@ try {
 
 	$response = aor_test_submit( $valid, 303, 'Accept a valid message and redirect after POST' );
 	aor_test_assert( add_query_arg( 'contact', 'sent', home_url( '/' ) ) . '#contact' === $response->location, 'Redirect remains on the site contact section' );
-	aor_test_assert( 1 === count( $mail_calls ) && get_option( 'admin_email' ) === $mail_calls[0]['to'], 'Use the configured administrator recipient' );
+	aor_test_assert( 1 === count( $mail_calls ) && 'team@example.org' === $mail_calls[0]['to'], 'Use the separately configured contact recipient' );
 	aor_test_assert( in_array( 'Reply-To: elodie@example.org', $mail_calls[0]['headers'], true ), 'Replies go to the validated sender' );
 	aor_test_assert( str_contains( $mail_calls[0]['message'], 'Élodie Test' ), 'Preserve accented message content' );
 	aor_test_assert( str_contains( $mail_calls[0]['message'], 'Diagnostic & cartographie des risques' ), 'Use the allowlisted label in the message body' );
@@ -109,7 +121,14 @@ try {
 	delete_transient( $rate_key );
 	$mail_result = false;
 	aor_test_submit( $valid, 503, 'Report mail service failures without a success redirect' );
+
+	delete_transient( $rate_key );
+	putenv( 'AOR_CONTACT_EMAIL=not-an-email' );
+	$calls_before = count( $mail_calls );
+	aor_test_submit( $valid, 503, 'Invalid recipient produces an error instead of a success confirmation' );
+	aor_test_assert( count( $mail_calls ) === $calls_before, 'Invalid recipient never reaches the mail service' );
 	echo "\n{$checks} checks passed. No email sent.\n";
 } finally {
 	delete_transient( $rate_key );
+	putenv( false === $original_recipient ? 'AOR_CONTACT_EMAIL' : 'AOR_CONTACT_EMAIL=' . $original_recipient );
 }
