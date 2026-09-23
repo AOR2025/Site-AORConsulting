@@ -15,6 +15,7 @@ Contexte confirmé : entreprise en France, prestations et formations destinées 
 | Exposition réseau locale | WordPress lié à `127.0.0.1:8080`, aucun port MariaDB publié | Ne pas réutiliser sans revue cette configuration comme hébergement public |
 | WordPress et extensions | WordPress 7.1.1, thème 1.4.0 avant correction ; aucune extension active, deux extensions inactives | Maintenir les mises à jour et retirer les extensions inutilisées après vérification |
 | Administration | Inscriptions publiques fermées ; `WP_DEBUG=false` ; `DISALLOW_FILE_EDIT` non défini | Désactiver l’éditeur de fichiers en production ; vérifier les droits des comptes et la double authentification |
+| Commentaires | Autorisation ouverte par défaut dans les réglages locaux | Fermer les commentaires si inutiles au site vitrine et vérifier aussi les contenus déjà publiés |
 | Transport et en-têtes | HTTP local ; pas de CSP générale ni de `X-Content-Type-Options` sur l’accueil. La connexion WordPress dispose déjà d’une protection contre l’encadrement | Vérifier HTTPS, redirections et en-têtes sur le véritable hébergement ; tester toute CSP avec WordPress avant application |
 | Messagerie | Destinataire : adresse administrateur WordPress ; transport réel non vérifié | Choisir une boîte métier, limiter ses accès et vérifier la réception réelle avant ouverture du site |
 
@@ -26,7 +27,7 @@ Le plan d’exploitation doit couvrir les sauvegardes avec restauration testée,
 
 ## Informations à publier avant ouverture du site
 
-La base locale contient seulement une page d’exemple publiée et une politique de confidentialité en **brouillon**. Aucun lien vers des mentions légales, des CGV ou un médiateur n’était présent dans la page testée. Le lien de confidentialité du formulaire et du pied de page apparaît uniquement lorsqu’une politique publiée est configurée dans WordPress.
+Au début de la revue, la base locale contenait seulement une page d’exemple publiée et une politique de confidentialité en **brouillon**. Aucun lien vers des mentions légales, des CGV ou un médiateur n’était présent dans la page testée. Le lien de confidentialité du formulaire et du pied de page apparaît uniquement lorsqu’une politique publiée est configurée dans WordPress. Les pages d’expertise ajoutées ensuite ne remplacent pas ces documents juridiques.
 
 | Élément | Contenu à préparer |
 | --- | --- |

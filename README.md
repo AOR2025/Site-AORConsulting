@@ -35,6 +35,8 @@ Le thème comprend notamment :
 
 Le site utilise principalement les fonctionnalités natives de WordPress et limite les dépendances externes.
 
+Les [pages d’expertise et réglages SEO](docs/seo.md) complètent l’accueil : création des pages, édition des descriptions et préparation de l’indexation sur le domaine final.
+
 ## Structure du thème
 
 ```text
