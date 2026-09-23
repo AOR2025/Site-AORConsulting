@@ -20,7 +20,7 @@
 	<!-- wp:group {"className":"aor-footer-bottom","layout":{"type":"flex","justifyContent":"space-between"}} -->
 	<div class="wp-block-group aor-footer-bottom">
 		<!-- wp:paragraph --><p>© AO-Risk Consulting</p><!-- /wp:paragraph -->
-		<!-- wp:paragraph --><p><a href="<?php echo esc_url( home_url( '/#expertises' ) ); ?>">Expertises</a> · <a href="<?php echo esc_url( home_url( '/#approche' ) ); ?>">Notre approche</a> · <a href="<?php echo esc_url( home_url( '/#formation' ) ); ?>">Formation</a> · <a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>">Contact</a><?php if ( get_privacy_policy_url() ) : ?> · <a href="<?php echo esc_url( get_privacy_policy_url() ); ?>">Confidentialité</a><?php endif; ?></p><!-- /wp:paragraph -->
+		<!-- wp:paragraph --><p><a href="<?php echo esc_url( aor_consulting_page_url( 'expertises' ) ); ?>">Expertises</a> · <a href="<?php echo esc_url( home_url( '/#approche' ) ); ?>">Notre approche</a> · <a href="<?php echo esc_url( aor_consulting_page_url( 'formation-controle-interne', '/#formation' ) ); ?>">Formation</a> · <a href="<?php echo esc_url( home_url( '/#contact' ) ); ?>">Contact</a><?php if ( get_privacy_policy_url() ) : ?> · <a href="<?php echo esc_url( get_privacy_policy_url() ); ?>">Confidentialité</a><?php endif; ?></p><!-- /wp:paragraph -->
 	</div>
 	<!-- /wp:group -->
 </div>

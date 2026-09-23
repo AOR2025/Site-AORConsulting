@@ -2,7 +2,7 @@
 Theme Name: AO-Risk Consulting
 Author: eccealgo
 Description: Conseil en risques, résilience stratégique et formation pour les PME et ETI.
-Version: 1.4.0
+Version: 1.5.0
 Requires at least: 6.6
 Requires PHP: 8.0
 Text Domain: aor-consulting
@@ -223,6 +223,21 @@ body { margin: 0; -webkit-font-smoothing: antialiased; }
 .aor-page-intro { min-height: 0; }
 .aor-page h1, .aor-page-intro h1 { font-family: var(--wp--preset--font-family--aor-display); font-size: clamp(2.5rem, 5vw, 4rem); }
 .aor-page .wp-block-post-content a { text-decoration: underline; text-underline-offset: 0.2em; }
+
+.aor-breadcrumbs { margin-bottom: 2.5rem; color: var(--aor-muted); font-size: 0.75rem; }
+.aor-breadcrumbs ol { display: flex; flex-wrap: wrap; gap: 0.6rem; padding: 0; list-style: none; }
+.aor-breadcrumbs li { display: inline; }
+.aor-breadcrumbs li + li::before { content: '/'; padding-right: 0.6rem; }
+.aor-breadcrumbs a:hover { text-decoration: underline; }
+.aor-service-lead { max-width: 48rem; color: var(--aor-muted); font-size: 1.15rem; }
+.aor-service-content { padding-bottom: 2rem; }
+.aor-service-content > .wp-block-post-content { max-width: 780px; margin-inline: auto; }
+.aor-service-content h2 { margin-top: 3rem; font-family: var(--wp--preset--font-family--aor-display); font-size: clamp(1.7rem, 3vw, 2.4rem); font-weight: 400; line-height: 1.2; }
+.aor-service-content h3 { margin-top: 2rem; font-size: 1.1rem; }
+.aor-service-content p, .aor-service-content li { color: var(--aor-muted); }
+.aor-service-content li + li { margin-top: 0.65rem; }
+.aor-service-content a { text-decoration: underline; text-underline-offset: 0.2em; }
+.aor-expertise > .aor-expertise-page-link { margin-top: 0; margin-bottom: 1rem; }
 
 @media (min-width: 782px) and (max-width: 1050px) {
 	.aor-hero-title { font-size: 4.3rem; }

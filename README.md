@@ -35,6 +35,8 @@ Le thème comprend notamment :
 
 Le site utilise principalement les fonctionnalités natives de WordPress et limite les dépendances externes.
 
+Les [pages d’expertise et réglages SEO](docs/seo.md) complètent l’accueil : création des pages, édition des descriptions et préparation de l’indexation sur le domaine final.
+
 ## Structure du thème
 
 ```text
@@ -179,6 +181,8 @@ Le formulaire utilise le système d’envoi d’e-mails de WordPress.
 Un transport e-mail adapté devra être configuré sur l’environnement de production avant la mise en ligne.
 
 ## Sécurité
+
+La [revue sécurité et obligations du site](docs/security-and-compliance.md) décrit les vérifications locales, les corrections et les informations à préparer avant la mise en ligne.
 
 Le dépôt ne contient pas les secrets de l’environnement.
 

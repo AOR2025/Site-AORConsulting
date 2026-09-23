@@ -28,6 +28,7 @@
 <!-- /wp:paragraph -->
 <!-- wp:html -->
 <a class="aor-service-link" href="#contact" data-contact-subject="formation">Parlons de votre formation <span aria-hidden="true">↗</span></a>
+<p class="aor-text-link"><a href="<?php echo esc_url( aor_consulting_page_url( 'formation-controle-interne', '/#formation' ) ); ?>">Programme et modalités de la formation <span aria-hidden="true">↗</span></a></p>
 <!-- /wp:html -->
 </div>
 <!-- /wp:column -->

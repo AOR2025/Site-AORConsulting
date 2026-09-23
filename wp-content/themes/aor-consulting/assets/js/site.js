@@ -91,7 +91,8 @@
 			const controller = new AbortController();
 			const timeout = window.setTimeout(() => controller.abort(), 20000);
 			try {
-				const response = await fetch(form.action, {
+					// The hidden WordPress field named "action" shadows form.action.
+					const response = await fetch(form.getAttribute('action'), {
 					method: 'POST', body: data, credentials: 'same-origin', headers: { Accept: 'application/json' }, signal: controller.signal
 				});
 				const result = await response.json();

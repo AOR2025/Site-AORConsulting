@@ -8,6 +8,13 @@
       "postTypes": [
         "page"
       ]
+    },
+    {
+      "name": "page-expertise",
+      "title": "Prestation AO-Risk Consulting",
+      "postTypes": [
+        "page"
+      ]
     }
   ],
   "templateParts": [

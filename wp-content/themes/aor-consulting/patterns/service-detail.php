@@ -49,6 +49,7 @@
 <!-- /wp:columns -->
 <!-- wp:html -->
 <a class="aor-service-link" href="#contact" data-contact-subject="diagnostic">Poser les bonnes fondations <span aria-hidden="true">↗</span></a>
+<p class="aor-text-link aor-expertise-page-link"><a href="<?php echo esc_url( aor_consulting_page_url( 'expertises/diagnostic-cartographie-risques' ) ); ?>">Diagnostic et cartographie des risques <span aria-hidden="true">↗</span></a></p>
 <!-- /wp:html -->
 </details>
 <!-- /wp:details -->
@@ -83,6 +84,7 @@
 <!-- /wp:columns -->
 <!-- wp:html -->
 <a class="aor-service-link" href="#contact" data-contact-subject="gouvernance">Structurer votre pilotage <span aria-hidden="true">↗</span></a>
+<p class="aor-text-link aor-expertise-page-link"><a href="<?php echo esc_url( aor_consulting_page_url( 'expertises/gouvernance-pilotage-risques' ) ); ?>">Gouvernance et pilotage des risques <span aria-hidden="true">↗</span></a></p>
 <!-- /wp:html -->
 </details>
 <!-- /wp:details -->
@@ -117,6 +119,7 @@
 <!-- /wp:columns -->
 <!-- wp:html -->
 <a class="aor-service-link" href="#contact" data-contact-subject="resilience">Renforcer votre résilience <span aria-hidden="true">↗</span></a>
+<p class="aor-text-link aor-expertise-page-link"><a href="<?php echo esc_url( aor_consulting_page_url( 'expertises/gestion-crise-continuite-activite' ) ); ?>">Gestion de crise et continuité d’activité <span aria-hidden="true">↗</span></a></p>
 <!-- /wp:html -->
 </details>
 <!-- /wp:details -->
@@ -151,6 +154,7 @@
 <!-- /wp:columns -->
 <!-- wp:html -->
 <a class="aor-service-link" href="#contact" data-contact-subject="specialisation">Explorer vos risques spécifiques <span aria-hidden="true">↗</span></a>
+<p class="aor-text-link aor-expertise-page-link"><a href="<?php echo esc_url( aor_consulting_page_url( 'expertises/risques-fournisseurs-esg' ) ); ?>">Risques fournisseurs et ESG <span aria-hidden="true">↗</span></a></p>
 <!-- /wp:html -->
 </details>
 <!-- /wp:details -->
@@ -184,10 +188,11 @@
 </div>
 <!-- /wp:columns -->
 <!-- wp:paragraph {"className":"aor-text-link"} -->
-<p class="aor-text-link"><a href="#formation">Découvrir la formation contrôle interne <span aria-hidden="true">↗</span></a></p>
+<p class="aor-text-link"><a href="<?php echo esc_url( aor_consulting_page_url( 'formation-controle-interne', '/#formation' ) ); ?>">Découvrir la formation contrôle interne <span aria-hidden="true">↗</span></a></p>
 <!-- /wp:paragraph -->
 <!-- wp:html -->
 <a class="aor-service-link" href="#contact" data-contact-subject="accompagnement">Construire votre accompagnement <span aria-hidden="true">↗</span></a>
+<p class="aor-text-link aor-expertise-page-link"><a href="<?php echo esc_url( aor_consulting_page_url( 'expertises/external-risk-officer' ) ); ?>">External Risk Officer <span aria-hidden="true">↗</span></a></p>
 <!-- /wp:html -->
 </details>
 <!-- /wp:details -->

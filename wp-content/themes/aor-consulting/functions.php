@@ -9,6 +9,9 @@ if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 }
 
+require_once get_template_directory() . '/inc/content.php';
+require_once get_template_directory() . '/inc/seo.php';
+
 function aor_consulting_setup() {
 	load_theme_textdomain( 'aor-consulting', get_template_directory() . '/languages' );
 	add_theme_support( 'editor-styles' );
