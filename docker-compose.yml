@@ -19,6 +19,7 @@ services:
       WORDPRESS_DB_NAME: ${DB_NAME}
       WORDPRESS_DB_USER: ${DB_USER}
       WORDPRESS_DB_PASSWORD: ${DB_PASSWORD}
+      AOR_CONTACT_EMAIL: ${AOR_CONTACT_EMAIL:-}
     volumes:
       - ./wp-content:/var/www/html/wp-content
     depends_on:

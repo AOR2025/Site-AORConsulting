@@ -87,7 +87,18 @@ function aor_consulting_contact_fields( $input ) {
 	return $fields;
 }
 
-/** The recipient is the configured site administrator; no public address is invented. */
+/** Keep environment-specific recipients out of the theme and public markup. */
+function aor_consulting_contact_recipient() {
+	$configured = getenv( 'AOR_CONTACT_EMAIL' );
+	$recipient  = false === $configured || '' === $configured ? get_option( 'admin_email' ) : $configured;
+	if ( ! is_string( $recipient ) || preg_match( '/[\r\n]/', $recipient ) ) {
+		return '';
+	}
+	$recipient = trim( $recipient );
+	return is_email( $recipient ) ? $recipient : '';
+}
+
+/** Send only after validation, using the recipient configured for this environment. */
 function aor_consulting_submit_contact() {
 	if ( 'POST' !== ( $_SERVER['REQUEST_METHOD'] ?? '' ) ) {
 		aor_consulting_contact_error( __( 'Méthode non autorisée.', 'aor-consulting' ), 405 );
@@ -114,7 +125,7 @@ function aor_consulting_submit_contact() {
 	}
 	set_transient( $rate_key, 1, MINUTE_IN_SECONDS );
 
-	$recipient = get_option( 'admin_email' );
+	$recipient = aor_consulting_contact_recipient();
 	$subject   = aor_consulting_contact_subjects()[ $fields['contact_subject'] ] ?? __( 'Non précisé', 'aor-consulting' );
 	$message   = sprintf( "Nom : %s\nE-mail : %s\nSujet : %s\n\n%s", $fields['contact_name'], $fields['contact_email'], $subject, $fields['contact_message'] );
 	$sent      = is_email( $recipient ) && wp_mail(

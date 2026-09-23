@@ -21,6 +21,8 @@ Contexte confirmé : entreprise en France, prestations et formations destinées 
 
 Les tests serveur interceptent `wp_mail`. Les essais navigateur simulent les réponses, sauf un test réel avec un nonce volontairement invalide, rejeté en 403. Aucun e-mail n’a été envoyé pendant cette revue. Ces contrôles ne constituent pas un test d’intrusion exhaustif.
 
+Complément messagerie : le diagnostic ultérieur a confirmé l'absence de l'exécutable `sendmail` et de configuration SMTP dans le conteneur local. Le destinataire du formulaire est désormais configurable séparément de l'administrateur ; le transport doit être configuré avec WP Mail SMTP dans le back-office. Voir la [configuration et les vérifications encore nécessaires](email.md).
+
 La limitation actuelle repose sur une clé issue de l’adresse IP et expire après une minute. C’est une protection antispam de base : vérifier son comportement derrière le proxy de production. Le nonce public ne constitue ni une authentification ni une preuve qu’un visiteur est humain. Voir les [limites des nonces WordPress](https://developer.wordpress.org/apis/security/nonces/).
 
 Le plan d’exploitation doit couvrir les sauvegardes avec restauration testée, les mises à jour de WordPress/PHP/extensions, les accès administrateurs et les permissions des fichiers. Voir le [guide de sécurisation WordPress](https://developer.wordpress.org/advanced-administration/security/hardening/). La version installée inclut la [mise à jour de sécurité 7.1.1](https://wordpress.org/news/2026/09/wordpress-7-1-1-maintenance-and-security-release/).
