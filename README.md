@@ -180,6 +180,8 @@ Un transport e-mail adapté devra être configuré sur l’environnement de prod
 
 ## Sécurité
 
+La [revue sécurité et obligations du site](docs/security-and-compliance.md) décrit les vérifications locales, les corrections et les informations à préparer avant la mise en ligne.
+
 Le dépôt ne contient pas les secrets de l’environnement.
 
 Les fichiers contenant des données sensibles ou générées localement sont exclus grâce au `.gitignore`, notamment :
